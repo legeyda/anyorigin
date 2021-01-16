@@ -1,0 +1,7 @@
+--insecure-options=all
+run
+--net=host
+--inherit-env
+legeyda.com/anyorigin:{{VERSION}}
+--set-env=LOG_LEVEL=trace
+--set-env=DELAY=0

@@ -1,0 +1,28 @@
+begin
+set-name legeyda.com/anyorigin
+dependency add legeyda.com/centos7 --label version=0.2.6 --label os={{OS}} --label arch={{ARCH}}
+
+label add version {{VERSION}}
+label add os {{OS}}
+label add arch {{ARCH}}
+
+port add http tcp 49049
+mount add volume /volume
+
+environment add PORT 49049
+environment add HOST 0.0.0.0
+environment add LOG_LEVEL INFO
+environment add NGINX_HOST 0.0.0.0
+environment add NGINX_PORT 80
+environment add WRITE_NGINX_CONFIG true
+environment add NGINX_CONFIG_DIR /volume/etc/nginx/conf.d
+environment add DELAY 0
+#environment add NGINX_CONFIG_NAME ''
+#environment add TAG ''
+
+copy-to-dir target/release/anyorigin /usr/bin
+copy-to-dir etc/start.sh etc/anyorigin.conf.in /
+
+set-exec bash /start.sh
+
+write --overwrite {{OUTPUT}}

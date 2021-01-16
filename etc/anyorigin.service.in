@@ -1,0 +1,9 @@
+[Unit]
+Description=anyorigin
+Wants=nginx
+
+[Service]
+ExecStart={{PREFIX}}/usr/bin/anyorigin --address {{HOST}}:{{PORT}}
+
+[Install]
+WantedBy=multi-user.target

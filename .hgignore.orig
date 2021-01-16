@@ -1,0 +1,8 @@
+syntax: glob
+
+target
+gdb.exe.stackdump
+<<<<<<< local
+Cargo.toml
+=======
+Cargo.toml>>>>>>> other

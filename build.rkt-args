@@ -1,0 +1,12 @@
+--insecure-options=all
+run
+--net=host
+--volume=source,kind=host,source=.
+legeyda.com/rustc:0.2.4
+--mount
+volume=source,target=/source
+--exec
+/bin/bash
+--
+-c
+cd /source && CARGO_HOME=/source/target/cargo cargo build --release

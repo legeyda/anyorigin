@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+yum install -y gcc openssl-devel
+yum clean all
+
+cd /dummy-project; cargo build --verbose && cargo build --verbose --release
